@@ -1,7 +1,22 @@
 
 //Q1
 function checkSubstring(haystack, needle) {
-  if(haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1) {
+  haystack = haystack.toLowerCase();
+  needle = needle.toLowerCase();
+
+  for(var i = 0; i <= haystack.length - needle.length; i++) {
+    for(var j = i; j < i + needle.length; j++) {
+      var flag = 1;
+      if(haystack.charAt(j) !== needle.charAt(j - i)) {
+        flag = 0;
+        break;
+      }
+    }
+    if(flag == 1) {
+      break;
+    }
+  }
+  if(flag == 1) {
     return true;
   } else {
     return false;
@@ -79,6 +94,7 @@ function createBST() {
 
     var tree = addNode(tree, nodeA);
     tree = addNode(tree, nodeB);
+    //intentionally make an incorrect BST
     // tree.setLeft(nodeB);
     tree = addNode(tree, nodeC);
     tree = addNode(tree, nodeD);
