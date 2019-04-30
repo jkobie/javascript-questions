@@ -1,8 +1,8 @@
 
 //Q1
 function checkSubstring(haystack, needle) {
-  haystack = haystack.toLowerCase();
-  needle = needle.toLowerCase();
+  var haystack = haystack.toLowerCase();
+  var needle = needle.toLowerCase();
 
   for(var i = 0; i <= haystack.length - needle.length; i++) {
     for(var j = i; j < i + needle.length; j++) {
@@ -21,6 +21,7 @@ function checkSubstring(haystack, needle) {
   } else {
     return false;
   }
+ 
 }
 
 //Q2
@@ -143,6 +144,18 @@ function checkTree() {
   return true;
 }
 
+// AJAX load
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+          this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
 //jQuery
 $(document).ready(function() {
   $("form#build").submit(function(event) {
