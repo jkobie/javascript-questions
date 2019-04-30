@@ -1,1 +1,1 @@
-This is some ajax info
+This is some ajax info Read from a file
