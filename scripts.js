@@ -12,11 +12,11 @@ function checkSubstring(haystack, needle) {
         break;
       }
     }
-    if(flag == 1) {
+    if(flag === 1) {
       break;
     }
   }
-  if(flag == 1) {
+  if(flag === 1) {
     return true;
   } else {
     return false;
@@ -56,11 +56,11 @@ function Node(value) {
 
 Node.prototype.setLeft = function(left) {
   this.left = left;
-}
+};
 
 Node.prototype.setRight = function(right) {
   this.right = right;
-}
+};
 
 function addNode(tree, node) {
   if(tree) {
@@ -156,6 +156,23 @@ function loadDoc() {
   xhttp.open("GET", "ajax_info.txt", true);
   xhttp.send();
 }
+
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 2000);
+  });
+}
+
+async function asyncCall() {
+  console.log('calling');
+  var result = await resolveAfter2Seconds();
+  console.log(result);
+  alert('Resolved');
+  // expected output: 'resolved'
+}
+
 //jQuery
 $(document).ready(function() {
   $("form#build").submit(function(event) {
